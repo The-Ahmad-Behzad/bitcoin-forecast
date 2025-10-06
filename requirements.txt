@@ -1,0 +1,35 @@
+yfinance
+pandas
+requests
+beautifulsoup4
+vaderSentiment
+tqdm
+python-dateutil
+numpy
+feedparser
+python-dateutil
+flask
+flask-restful
+pandas
+numpy
+yfinance
+requests
+beautifulsoup4
+vaderSentiment
+python-dateutil
+pymongo
+dnspython
+plotly
+statsmodels
+scikit-learn
+pytest
+pytest-cov
+pytest-mock
+requests
+pytest
+gunicorn
+flask_cors
+statsmodels>=0.14.0
+# Optional (GRU); installation may be skipped if not desired
+tensorflow>=2.12.0 ; extra == "gru"
+keras
