@@ -1,3 +1,5 @@
+// frontend/src/services/api.js
+
 import axios from "axios";
 
 const API_BASE = "/api";
@@ -14,5 +16,10 @@ export const getHistoricalData = async (limit = 15) => {
 
 export const triggerIngestion = async (start, end) => {
   const res = await axios.post(`${API_BASE}/ingest`, { start, end });
+  return res.data;
+};
+
+export const getForecast = async (horizon = 24) => {
+  const res = await axios.post(`${API_BASE}/forecast`, { horizon });
   return res.data;
 };

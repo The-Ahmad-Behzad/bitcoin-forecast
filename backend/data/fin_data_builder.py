@@ -363,6 +363,18 @@ def build_dataset(exchange: str, ticker: str, start: str, end: str, out_path: st
         logging.info("Aggregated news head:\n" + news_agg.head().to_string())
 
     merged_df = merge_and_save(price_df, news_agg, out_path, fmt='csv')
+    
+        # ✅ Ensure 'Date' is an explicit column (not just index)
+    if "Date" not in merged_df.columns:
+        merged_df = merged_df.reset_index().rename(columns={"index": "Date"})
+    merged_df["Date"] = pd.to_datetime(merged_df["Date"]).dt.strftime("%Y-%m-%d")
+
+    # ✅ Drop rows missing essential data (safety)
+    merged_df = merged_df.dropna(subset=["Close"], how="any")
+
+    logging.info(f"Final dataset ready for insertion: {len(merged_df)} rows, columns={list(merged_df.columns)}")
+
+    
     return merged_df
 
 def parse_args():

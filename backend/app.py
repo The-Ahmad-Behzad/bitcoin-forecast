@@ -6,14 +6,19 @@ from backend.api.historical import Historical
 from backend.api.ingest import ingest_to_mongo
 
 from flask_cors import CORS
+from backend.api.forecast import Forecast
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 api = Api(app)
 
+
 # --- ROUTES ---
 api.add_resource(Ping, "/api/ping")
 api.add_resource(Historical, "/api/historical")
+api.add_resource(Forecast, "/api/forecast")
 
 # --- Ingestion Endpoint ---
 @app.route("/api/ingest", methods=["POST"])

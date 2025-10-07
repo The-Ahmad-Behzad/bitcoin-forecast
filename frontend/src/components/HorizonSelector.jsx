@@ -1,10 +1,10 @@
 import React from "react";
 
 const options = [
-  { label: "1 Hour", value: 1 },
-  { label: "3 Hours", value: 3 },
-  { label: "24 Hours", value: 24 },
-  { label: "72 Hours", value: 72 },
+  { label: "5 Hours", value: 5 },
+  { label: "10 Hours", value: 10 },
+  { label: "20 Hours", value: 20 },
+  { label: "30 Hours", value: 30 },
 ];
 
 export default function HorizonSelector({ selected, onChange }) {
